@@ -10,7 +10,6 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
-
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
   // [::1] is the IPv6 localhost address.
@@ -38,15 +37,6 @@ export function register(config) {
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
-
-        if (
-          process.env.NODE_ENV === 'production' &&
-          window.__REACT_DEVTOOLS_GLOBAL_HOOK__ &&
-          Object.keys(window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers).length
-        ) {
-          window.__REACT_DEVTOOLS_GLOBAL_HOOK__._renderers = {}
-        }
-
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
