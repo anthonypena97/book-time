@@ -46,7 +46,7 @@ const resolvers = {
                     { _id: context.user._id },
                     { $push: { savedBooks: input } },
                     { new: true }
-                ).populate('savedBooks');;
+                ).populate('savedBooks');
 
                 return updatedSave;
             }
