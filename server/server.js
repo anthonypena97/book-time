@@ -1,5 +1,4 @@
 const express = require('express');
-// const routes = require('./routes');
 const { ApolloServer } = require('apollo-server-express');
 const { authMiddleware } = require('./utils/auth');
 const path = require('path');
@@ -46,10 +45,6 @@ if (process.env.NODE_ENV === 'production') {
 
 }
 
-// app.use(routes);
-
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
 });
-
-// console.log("hello!")
