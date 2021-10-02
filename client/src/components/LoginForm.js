@@ -37,9 +37,7 @@ const LoginForm = () => {
         variables: { ...userFormData }
       });
 
-      const { token, user } = await response.data.login;
-      console.log(user);
-      console.log(token);
+      const { token } = await response.data.login;
       Auth.login(token);
 
     } catch (err) {
