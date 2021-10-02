@@ -50,15 +50,20 @@ const SearchBooks = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
-      }));
+      const bookData = items.map((book) => {
 
-      console.log(bookData);
+        let imageString = book.volumeInfo.imageLinks?.thumbnail;
+
+        let image = imageString.slice(7);
+
+        return ({
+          bookId: book.id,
+          authors: book.volumeInfo.authors || ['No author to display'],
+          title: book.volumeInfo.title,
+          description: book.volumeInfo.description,
+          image: image || '',
+        })
+      });
 
       setSearchedBooks(bookData);
       setSearchInput('');
@@ -130,7 +135,7 @@ const SearchBooks = () => {
             return (
               <Card key={book.bookId} border='dark'>
                 {book.image ? (
-                  <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
+                  <Card.Img src={`https://${book.image}`} alt={`The cover for ${book.title}`} variant='top' />
                 ) : null}
                 <Card.Body>
                   <Card.Title>{book.title}</Card.Title>
